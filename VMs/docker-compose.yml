@@ -1,0 +1,9 @@
+# Inspired from https://github.com/zapbot/zap-mgmt-scripts/blob/master/.github/workflows/zap-vs-owasp-benchmark.yml
+
+services:
+  benchmark:
+    build: .
+    ports:
+      - 8443:8443
+    options: --entrypoint runRemoteAccessibleBenchmark.sh
+
