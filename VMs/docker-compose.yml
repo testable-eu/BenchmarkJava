@@ -2,8 +2,18 @@
 
 services:
   benchmark:
-    build: .
+    build:
+      context: ../
+      dockerfile: ./VMs/Dockerfile
     ports:
       - 8443:8443
-    options: --entrypoint runRemoteAccessibleBenchmark.sh
 
+  zap:
+    image: ghcr.io/zaproxy/zaproxy
+    depends_on:
+      - benchmark
+    volumes:
+      - ./zap/wrk:/zap/wrk/
+    command: /zap/wrk/dozap.sh
+
+    

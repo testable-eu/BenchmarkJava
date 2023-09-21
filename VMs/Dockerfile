@@ -21,14 +21,8 @@ RUN git clone https://github.com/OWASP-Benchmark/BenchmarkUtils.git
 WORKDIR /owasp/BenchmarkUtils
 RUN mvn install
 
-# Download, build BenchmarkJava
-WORKDIR /owasp
-RUN git clone https://github.com/OWASP-Benchmark/BenchmarkJava
-
-# Workaround for security fix for CVE-2022-24765
-RUN git config --global --add safe.directory /owasp/BenchmarkJava
-
 WORKDIR /owasp/BenchmarkJava
+COPY . .
 RUN mvn clean package cargo:install
 
 RUN useradd -d /home/bench -m -s /bin/bash bench 
@@ -42,3 +36,4 @@ ENV PATH /owasp/BenchmarkJava:$PATH
 WORKDIR /owasp/BenchmarkJava
 RUN timeout 60 ./runBenchmark.sh; exit 0
 
+ENTRYPOINT ["./runRemoteAccessibleBenchmark.sh"]
