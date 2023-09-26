@@ -4,4 +4,5 @@
     <test-number>00146</test-number>
     <vulnerability>true</vulnerability>
     <cwe>79</cwe>
+    <comment>Injected input from Header value</comment>
 </test-metadata>

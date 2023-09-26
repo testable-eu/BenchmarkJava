@@ -1,3 +1,10 @@
+# OWASP Benchmark with TESTABLE Enhancements
+
+## ZAP
+https://www.zaproxy.org/docs/desktop/addons/automation-framework
+
+https://www.zaproxy.org/docs/alerts/
+
 # OWASP Benchmark
 The OWASP Benchmark Project is a Java test suite designed to verify the speed and accuracy of vulnerability detection tools. It is a fully runnable open source web application that can be analyzed by any type of Application Security Testing (AST) tool, including SAST, DAST (like <a href="https://owasp.org/www-project-zap">OWASP ZAP</a>), and IAST tools. The intent is that all the vulnerabilities deliberately included in and scored by the Benchmark are actually exploitable so its a fair test for any kind of application vulnerability detection tool. The Benchmark also includes scorecard generators for numerous open source and commercial AST tools, and the set of supported tools is growing all the time.
 

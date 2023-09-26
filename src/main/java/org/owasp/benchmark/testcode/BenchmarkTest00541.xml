@@ -4,4 +4,5 @@
     <test-number>00541</test-number>
     <vulnerability>true</vulnerability>
     <cwe>79</cwe>
+    <comment>Input from parameter name, not value</comment>
 </test-metadata>
