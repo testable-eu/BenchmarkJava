@@ -6,33 +6,33 @@ Here are some steps to build and run the benchmark.
 
 ### Building and Benchmarking
 Everything is run within docker containers:
-´´´bash
+```bash
 cd VMs
 docker compose up --build
-´´´
+```
 This will build and start the benchmark, including testing using OWASP ZAP.
 
 ### Create Scorecards
 To create scorecards, copy the results where benchmark can find them:
 
-´´´bash
+```bash
 cp VMs/zap/wrk/results/2023-09-21-ZAP-Report-benchmark.xml results/
-´´´
+```
 
 Then run the scorecard script:
 
-´´´bash
+```bash
 bash createScorecards.sh
-´´´
+```
 
-You will find the results in the ´´´scorecard´´´ directory.
+You will find the results in the ```scorecard``` directory.
 
 ### Evaluate patterns
 Currently just a simple python script that looks for strings and tries to correlate them to false negatives:
 
-´´´
+```bash
 python3 scripts/simplePattern.py
-´´´
+```
 
 ## ZAP
 To configure ZAP, here are some useful links:
