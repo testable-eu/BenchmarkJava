@@ -37,7 +37,7 @@ with open(filename, "r", newline='') as csvfile:
         cat = row[" category"].strip()
         vulnerable = row[" real vulnerability"] == ' true'
         testfile = "src/main/java/org/owasp/benchmark/testcode/" + name + ".java"
-        
+
         for pattern in patterns:
             patternsFound[pattern] = False
         with open(testfile, "r") as f:
@@ -46,7 +46,7 @@ with open(filename, "r", newline='') as csvfile:
                     if pattern in line:
                         patternsFound[pattern] = True
                         onePatternFound = True
-        row = row | patternsFound
+        row = dict(row.items() | patternsFound.items())
         d.append(row)
         #print(row)
         if cat == "xss" and vulnerable and patternsFound["scr.getTheParameter(\"BenchmarkTest"]:
@@ -85,7 +85,7 @@ def subcategorybar(X, vals, labels, width=0.75):
     _X = np.arange(len(X))
     plt.figure(figsize=(10,6))
     for i in range(n):
-        plt.bar(_X - width/2. + i/float(n)*width, vals[i], 
+        plt.bar(_X - width/2. + i/float(n)*width, vals[i],
                 width=width/float(n), align="edge", label=labels[i])
     plt.legend(loc="upper right")
     plt.xticks(_X, X)
